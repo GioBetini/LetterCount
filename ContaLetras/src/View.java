@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.swing.*;
 public class View {
     public static void main(String[] args) throws Exception { 
-        String text = JOptionPane.showInputDialog("Insira o texto.");
+        String text = JOptionPane.showInputDialog("Enter text.");
         int [] vet = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         String [] alfabeto = {"A", "B", "C", "D", "E", "F", "G","H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
         String textMin = text.toLowerCase();
@@ -15,29 +15,29 @@ public class View {
             vet[num-97] = vet[num-97] + 1;
         }
         try{
-            File txt = new File("contagem de letras.txt");
+            File txt = new File("letter count.txt");
             if (txt.createNewFile()) {
-                JOptionPane.showMessageDialog(null, "Arquivo criado, procure por contagem de letras no menu iniciar");
+                JOptionPane.showMessageDialog(null, "File created successfully, search for letter count into the start menu");
               } else {
                 txt.delete();
                 txt.createNewFile();
-                JOptionPane.showMessageDialog(null,"O arquivo anterior foi excluído e um novo foi criado, procure por contagem de letras no menu iniciar");
+                JOptionPane.showMessageDialog(null,"Previous file has been deleted and another has been created, search for letter count into the start menu");
               }
         } catch (IOException e){
-            JOptionPane.showMessageDialog(null,"Erro");
+            JOptionPane.showMessageDialog(null,"Error");
             e.printStackTrace();
         }
         try{
             
-            FileWriter escrita = new FileWriter("contagem de letras.txt");
+            FileWriter escrita = new FileWriter("letter count.txt");
             for(int j = 0; j < vet.length-1; j++ ){
                 escrita.write(alfabeto[j]+" = "+vet[j]+"\n");
                 
             }
             escrita.close();
-        JOptionPane.showMessageDialog(null, "A escrita foi concluída com sucesso");
+        JOptionPane.showMessageDialog(null, "writing was successfully completed");
         } catch (IOException e) {
-        JOptionPane.showMessageDialog(null,"Erro");
+        JOptionPane.showMessageDialog(null,"Error");
         e.printStackTrace();
         }
         
